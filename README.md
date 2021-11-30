@@ -10,12 +10,21 @@ Data is populated from CSV file to MongoDB. To populate DB:
 - `node index.js`
 
 ### Start backend and frontend
-The backend (NodeJS) and frondend (React) are dockerized. Backend is accessible at localhost:5000, and frontend at localhost:3001. You can launch with:
+The backend (NodeJS) and frontend (React) are dockerized. Backend is accessible at localhost:5000, and frontend at localhost:3001. You can launch with:
 - `docker-compose build`
 - `docker-compose up -d`<br />
 
 To check if services are running, you can just do:
 - `docker container ls`
+
+If you want to use a local MongoDB instance, you'll have to uncomment db service in docker-compose file, and create an .env file with these parameters:
+```
+MONGO_USERNAME=
+MONGO_PASSWORD=
+MONGO_PORT=
+MONGO_DB=
+MONGO_HOSTNAME=
+```
 
 ### Priority check
 - [x] Organize a Git Repository, set it to public, and send us the link before you start working on the assessment.
