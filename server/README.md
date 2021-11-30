@@ -1,6 +1,9 @@
 # swisscom-case-study
 This is the API. It can accept GET, POST, PUT and DEL requests.
 
+### Swagger
+You can view API documentation on a Swagger interface at localhost:5000/api-docs/.
+
 ### GET
 You can get all records like so:
 - `curl -u admin:password http://localhost:5000/record`
