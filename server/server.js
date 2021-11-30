@@ -6,7 +6,11 @@ const port = process.env.PORT || 5000;
 const userEnv = process.env.USR;
 const pwdEnv = process.env.PASSWORD;
 
+const swaggerUi = require('swagger-ui-express');
+swaggerDocument = require('./swagger.json');
+
 var path = require('path');
+
 
 function authentication(req, res, next) {
     var authheader = req.headers.authorization;
@@ -37,6 +41,12 @@ function authentication(req, res, next) {
 
 }
 
+app.use(
+  '/api-docs',
+  swaggerUi.serve,
+  swaggerUi.setup(swaggerDocument)
+);
+
 app.use(cors({origin: '*'}));
 app.use(express.json());
 
@@ -48,6 +58,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(require("./routes/record"));
 // get driver connection
 const dbo = require("./db/conn");
+
+
 
 app.listen(port, () => {
   // perform a database connection when server starts

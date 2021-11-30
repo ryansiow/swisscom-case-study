@@ -35,7 +35,7 @@ MONGO_HOSTNAME=
 - [x] Create an employee collection in the database
 - [x] Containerize your backend application
 - [x] Create script to load CSV into the database
-- [ ] Containerize the database
+- [x] Containerize the database
 - [x] Create a proper deployment for your whole backend app (k8s or docker-compose)
 - [x] Implement filter parameters on the query API
 - [x] Write down a specification on how to use the API (target solution)

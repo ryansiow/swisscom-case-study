@@ -3,7 +3,7 @@ This is the API. It can accept GET, POST, PUT and DEL requests.
 
 ### GET
 You can get all records like so:
-- `curl -u admin:password http://localhost:5000/records`
+- `curl -u admin:password http://localhost:5000/record`
 
 Get a single record by id:
 - `curl -u admin:password http://localhost:5000/record/:id`
