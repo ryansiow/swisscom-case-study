@@ -1,8 +1,9 @@
 const csvtojson = require('csvtojson');
 const mongodb = require('mongodb');
-
+require("dotenv").config({ path: "./config.env" });
+const db_URI = process.env.MONGO_URI;
 //var url = "mongodb://localhost:27017/EmployeeDB";
-const url = "mongodb+srv://rjsiow:Starwarsarc-170@clustertest.1vt7i.mongodb.net/EmployeeDB?retryWrites=true&w=majority"
+const url = db_URI;
 
 var dbConn;
 mongodb.MongoClient.connect(url, {
@@ -27,12 +28,13 @@ mongodb.MongoClient.connect(url, {
          }
          //inserting into the table “employees”
          var collectionName = 'employees';
-         console.log(dbConn);
          var collection = dbConn.collection(collectionName);
          collection.insertMany(arrayToInsert, (err, result) => {
              if (err) console.log(err);
              if(result){
                  console.log("Import CSV into database successfully.");
+                 console.log("Closing DB connection. Bye!")
+                 client.close();
              }
          });
     });

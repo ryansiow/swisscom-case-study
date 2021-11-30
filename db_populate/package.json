@@ -19,6 +19,7 @@
   "homepage": "https://github.com/ryansiow/swisscom-case-study#readme",
   "dependencies": {
     "csvtojson": "^2.0.10",
+    "dotenv": "^10.0.0",
     "mongodb": "^4.2.0"
   }
 }
