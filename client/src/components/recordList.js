@@ -56,7 +56,10 @@ export default class RecordList extends Component {
 
   // DELETE a record based on the method
   deleteRecord(id) {
-    axios.delete("http://localhost:5000/" + id).then((response) => {
+    const tok = 'admin:password';
+    const hash = Base64.encode(tok);
+    const basicAuth = 'Basic ' + hash;
+    axios.delete("http://localhost:5000/" + id, { headers: { 'Authorization': basicAuth }}).then((response) => {
       console.log(response.data);
     });
 
