@@ -36,7 +36,7 @@ recordRoutes.route("/record/:id").get(function (req, res) {
       });
 });
 
-// GET a record by firstname (ascending)
+// GET a record by firstname
 recordRoutes.route("/record/firstname/:firstName").get(function (req, res) {
   let db_connect = dbo.getDb();
   let myquery = { firstName: req.params.firstName };
@@ -48,7 +48,7 @@ recordRoutes.route("/record/firstname/:firstName").get(function (req, res) {
       });
 });
 
-// GET a record by lastname (ascending)
+// GET a record by lastname
 recordRoutes.route("/record/lastname/:lastName").get(function (req, res) {
   let db_connect = dbo.getDb();
   let myquery = { lastName: req.params.lastName };
@@ -60,19 +60,24 @@ recordRoutes.route("/record/lastname/:lastName").get(function (req, res) {
       });
 });
 
-// GET a record by department (ascending)
+// GET all record by department
 recordRoutes.route("/record/department/:department").get(function (req, res) {
   let db_connect = dbo.getDb();
-  let myquery = { department: req.params.department };
+  let myquery = { department: req.params.department};
   db_connect
       .collection("employees")
-      .findOne(myquery, function (err, result) {
+      .find(myquery)
+      .toArray(function (err, result) {
         if (err) throw err;
         res.json(result);
       });
+      // .findOne(myquery, function (err, result) {
+      //   if (err) throw err;
+      //   res.json(result);
+      // });
 });
 
-// GET a record by birthdate (ascending)
+// GET a record by birthdate
 recordRoutes.route("/record/birthdate/:birthdate").get(function (req, res) {
   let db_connect = dbo.getDb();
   let myquery = { birthdate: req.params.birthdate };
@@ -84,7 +89,7 @@ recordRoutes.route("/record/birthdate/:birthdate").get(function (req, res) {
       });
 });
 
-// GET a record by costcenter (ascending)
+// GET a record by costcenter
 recordRoutes.route("/record/costcenter/:costcenter").get(function (req, res) {
   let db_connect = dbo.getDb();
   let myquery = { costCenter: req.params.costCenter };
