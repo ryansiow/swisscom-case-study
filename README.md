@@ -18,18 +18,18 @@ To check if services are running, you can just do:
 - `docker container ls`
 
 ### Priority check
-- [ ] Organize a Git Repository, set it to public, and send us the link before you start working on the assessment.
-- [ ] Backend: Setup of a simple backend application (can return a static list initially)
+- [x] Organize a Git Repository, set it to public, and send us the link before you start working on the assessment.
+- [x] Backend: Setup of a simple backend application (can return a static list initially)
 - [ ] Create a workflow in vRO with the basic structure of the work it needs to do
-- [ ] Host your backend somewhere and retrieve the list of employees from vRO via http
+- [x] Host your backend somewhere and retrieve the list of employees from vRO via http
 - [ ] “Deploy” VMs based on the retrieved list in your workflow
-- [ ] Create an employee collection in the database
-- [ ] Containerize your backend application
-- [ ] Create script to load CSV into the database
+- [x] Create an employee collection in the database
+- [x] Containerize your backend application
+- [x] Create script to load CSV into the database
 - [ ] Containerize the database
-- [ ] Create a proper deployment for your whole backend app (k8s or docker-compose)
-- [ ] Implement filter parameters on the query API
-- [ ] Write down a specification on how to use the API (target solution)
+- [x] Create a proper deployment for your whole backend app (k8s or docker-compose)
+- [x] Implement filter parameters on the query API
+- [x] Write down a specification on how to use the API (target solution)
 - [ ] Implement that the URL and credentials are stored as configuration elements in vRO
 - [ ] Parameterize vRO workflow to query only specific departments from backend
-- [ ] Implement basic authentication on backend
+- [x] Implement basic authentication on backend
