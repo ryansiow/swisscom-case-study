@@ -29,7 +29,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/Employee"
+              "$ref": "#/definitions/Employees"
             }
           }
         }
@@ -49,15 +49,130 @@
         }
       }
     },
+    "/record/firstName/{firstName}": {
+      "get": {
+        "tags": ["Employee"],
+        "summary": "Get a single record by firstName",
+        "produces": [ "application/json" ],
+        "parameters": [
+          {
+            "name": "firstName",
+            "in": "path",
+            "description": "Employee that we want to get by firstName",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Employee"
+            }
+          }
+        }
+      }
+    },
+    "/record/lastName/{lastName}": {
+      "get": {
+        "tags": ["Employee"],
+        "summary": "Get a single record by lastName",
+        "produces": [ "application/json" ],
+        "parameters": [
+          {
+            "name": "lastName",
+            "in": "path",
+            "description": "Employee that we want to get by lastName",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Employee"
+            }
+          }
+        }
+      }
+    },
+    "/record/department/{department}": {
+      "get": {
+        "tags": ["Employee"],
+        "summary": "Get all records by department",
+        "produces": [ "application/json" ],
+        "parameters": [
+          {
+            "name": "department",
+            "in": "path",
+            "description": "The department",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Employees"
+            }
+          }
+        }
+      }
+    },
+    "/record/birthdate/{birthdate}": {
+      "get": {
+        "tags": ["Employee"],
+        "summary": "Get all records by birthdate",
+        "produces": [ "application/json" ],
+        "parameters": [
+          {
+            "name": "birthdate",
+            "in": "path",
+            "description": "Birthdate",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Employees"
+            }
+          }
+        }
+      }
+    },
+    "/record/costcenter/{costcenter}": {
+      "get": {
+        "tags": ["Employee"],
+        "summary": "Get all records by costcenter",
+        "produces": [ "application/json" ],
+        "parameters": [
+          {
+            "name": "costcenter",
+            "in": "path",
+            "description": "costcenter",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Employees"
+            }
+          }
+        }
+      }
+    },
     "/record/add": {
-      "put": {
+      "post": {
         "tags": ["Employee"],
         "summary": "Create a new record",
         "parameters": [
           {
-            "firstName": "user",
+            "name": "user",
             "in": "body",
-            "description": "User that we want to create",
+            "description": "Employee that we want to create",
             "schema": {
               "$ref": "#/definitions/Employee"
             }
@@ -91,12 +206,8 @@
   },
   "definitions": {
     "Employee": {
-      "required": ["name", "_id", "companies"],
+      "required": ["firstName", "lastName", "department", "birthdate", "costCenter"],
       "properties": {
-        "_id": {
-          "type": "objectId",
-          "uniqueItems": true
-        },
         "firstName": {
           "type": "string"
         },
@@ -109,7 +220,7 @@
         "birthdate": {
           "type": "string"
         },
-        "costcenter": {
+        "costCenter": {
           "type": "string"
         }
       }

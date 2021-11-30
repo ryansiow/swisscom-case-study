@@ -12,19 +12,16 @@ Get a single record by id:
 - `curl -u admin:password http://localhost:5000/record/:id`
 
 Get a single record by firstName:
-- `curl -u admin:password http://localhost:5000/record/:firstName`
+- `curl -u admin:password http://localhost:5000/record/firstName/:firstName`
 
 Get a single record by lastName:
-- `curl -u admin:password http://localhost:5000/record/:lastName`
-
-Get a single record by department:
-- `curl -u admin:password http://localhost:5000/record/:department`
+- `curl -u admin:password http://localhost:5000/record/lastName/:lastName`
 
 Get a single record by birthdate:
-- `curl -u admin:password http://localhost:5000/record/:birthdate`
+- `curl -u admin:password http://localhost:5000/record/birthdate/:birthdate`
 
 Get all records by department:
-- `curl -u admin:password http://localhost:5000/record/:department`
+- `curl -u admin:password http://localhost:5000/record/department/:department`
 
 Get a record by costcenter:
 - `curl -u admin:password http://localhost:5000/record/:costcenter`

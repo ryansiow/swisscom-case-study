@@ -92,7 +92,7 @@ recordRoutes.route("/record/birthdate/:birthdate").get(function (req, res) {
 // GET a record by costcenter
 recordRoutes.route("/record/costcenter/:costcenter").get(function (req, res) {
   let db_connect = dbo.getDb();
-  let myquery = { costCenter: req.params.costCenter };
+  let myquery = { costCenter: req.params.costcenter };
   db_connect
       .collection("employees")
       .findOne(myquery, function (err, result) {
