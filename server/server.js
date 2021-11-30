@@ -3,7 +3,10 @@ const app = express();
 const cors = require("cors");
 require("dotenv").config({ path: "./config.env" });
 const port = process.env.PORT || 5000;
-
+const userEnv = process.env.USR;
+const pwdEnv = process.env.PASSWORD;
+console.log(userEnv);
+console.log(pwdEnv);
 
 var path = require('path');
 
@@ -23,7 +26,7 @@ function authentication(req, res, next) {
     var user = auth[0];
     var pass = auth[1];
 
-    if (user == 'admin' && pass == 'password') {
+    if (user == userEnv && pass == pwdEnv) {
 
         // If Authorized user
         next();

@@ -42,10 +42,6 @@ export default class RecordList extends Component {
     const tok = 'admin:password';
     const hash = Base64.encode(tok);
     const basicAuth = 'Basic ' + hash;
-    // var username = 'admin';
-    // var password = 'password';
-    // var basicAuth = 'Basic ' + btoa(username + ':' + password);
-    //,auth: {username: 'admin', password: 'password'}
     console.log(basicAuth);
     axios
       .get('http://localhost:5000/record/', { headers: { 'Authorization': basicAuth }})
