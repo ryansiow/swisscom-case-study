@@ -97,38 +97,41 @@ recordRoutes.route("/record/costcenter/:costcenter").get(function (req, res) {
 });
 
 // Create a new record.
-// recordRoutes.route("/record/add").post(function (req, response) {
-//   let db_connect = dbo.getDb();
-//   let myobj = {
-//     person_name: req.body.person_name,
-//     person_position: req.body.person_position,
-//     person_level: req.body.person_level,
-//   };
-//   db_connect.collection("employees").insertOne(myobj, function (err, res) {
-//     if (err) throw err;
-//     response.json(res);
-//   });
-// });
+recordRoutes.route("/record/add").post(function (req, response) {
+  let db_connect = dbo.getDb();
+  let myobj = {
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    department: req.body.department,
+    birthdate: req.body.birthdate,
+    costCenter: req.body.costCenter
+  };
+  db_connect.collection("employees").insertOne(myobj, function (err, res) {
+    if (err) throw err;
+    response.json(res);
+  });
+});
 
 // Update a record by id.
-// recordRoutes.route("/update/:id").post(function (req, response) {
-//   let db_connect = dbo.getDb();
-//   let myquery = { _id: ObjectId( req.params.id )};
-//   let newvalues = {
-//     $set: {
-//       person_name: req.body.person_name,
-//       person_position: req.body.person_position,
-//       person_level: req.body.person_level,
-//     },
-//   };
-//   db_connect
-//     .collection("employees")
-//     .updateOne(myquery, newvalues, function (err, res) {
-//       if (err) throw err;
-//       console.log("1 document updated");
-//       response.json(res);
-//     });
-// });
+recordRoutes.route("/update/:id").post(function (req, response) {
+  let db_connect = dbo.getDb();
+  let myquery = { _id: ObjectId( req.params.id )};
+  let newvalues = {
+    $set: {
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      department: req.body.department,
+      costCenter: req.body.costCenter
+    },
+  };
+  db_connect
+    .collection("employees")
+    .updateOne(myquery, newvalues, function (err, res) {
+      if (err) throw err;
+      console.log("1 document updated");
+      response.json(res);
+    });
+});
 
 // DELETE a record
 recordRoutes.route("/:id").delete((req, response) => {

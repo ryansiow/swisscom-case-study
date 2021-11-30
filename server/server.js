@@ -5,8 +5,6 @@ require("dotenv").config({ path: "./config.env" });
 const port = process.env.PORT || 5000;
 const userEnv = process.env.USR;
 const pwdEnv = process.env.PASSWORD;
-console.log(userEnv);
-console.log(pwdEnv);
 
 var path = require('path');
 

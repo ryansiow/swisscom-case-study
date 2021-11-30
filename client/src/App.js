@@ -4,7 +4,7 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/navbar";
-//import Edit from "./components/edit";
+import Edit from "./components/edit";
 //import Create from "./components/create";
 import RecordList from "./components/recordList";
 
@@ -14,6 +14,7 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route exact path="/" element={<RecordList />} />
+        <Route path="/edit/:id" component={Edit} />
       </Routes>
     </div>
   );
