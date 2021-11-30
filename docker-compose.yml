@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  app:
+    build: ./server
+    restart: always
+    ports:
+      - 5000:5000
+    stdin_open: true
+    tty: true
+  frontend:
+    depends_on:
+      - app
+    build: ./client
+    restart: always
+    ports:
+      - 3001:3001
+    stdin_open: true
+    tty: true

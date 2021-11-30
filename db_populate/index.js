@@ -19,8 +19,8 @@ mongodb.MongoClient.connect(url, {
              var oneRow = {
                  firstName: source[i]["first_name"],
                  lastName: source[i]["last_name"],
-                 city: source[i]["department"],
-                 birtdate: source[i]["birthdate"],
+                 department: source[i]["department"],
+                 birthdate: source[i]["birthdate"],
                  costCenter: source[i]["costcenter"]
              };
              arrayToInsert.push(oneRow);

@@ -36,6 +36,66 @@ recordRoutes.route("/record/:id").get(function (req, res) {
       });
 });
 
+// GET a record by firstname (ascending)
+recordRoutes.route("/record/firstname/:firstName").get(function (req, res) {
+  let db_connect = dbo.getDb();
+  let myquery = { firstName: req.params.firstName };
+  db_connect
+      .collection("employees")
+      .findOne(myquery, function (err, result) {
+        if (err) throw err;
+        res.json(result);
+      });
+});
+
+// GET a record by lastname (ascending)
+recordRoutes.route("/record/lastname/:lastName").get(function (req, res) {
+  let db_connect = dbo.getDb();
+  let myquery = { lastName: req.params.lastName };
+  db_connect
+      .collection("employees")
+      .findOne(myquery, function (err, result) {
+        if (err) throw err;
+        res.json(result);
+      });
+});
+
+// GET a record by department (ascending)
+recordRoutes.route("/record/department/:department").get(function (req, res) {
+  let db_connect = dbo.getDb();
+  let myquery = { department: req.params.department };
+  db_connect
+      .collection("employees")
+      .findOne(myquery, function (err, result) {
+        if (err) throw err;
+        res.json(result);
+      });
+});
+
+// GET a record by birthdate (ascending)
+recordRoutes.route("/record/birthdate/:birthdate").get(function (req, res) {
+  let db_connect = dbo.getDb();
+  let myquery = { birthdate: req.params.birthdate };
+  db_connect
+      .collection("employees")
+      .findOne(myquery, function (err, result) {
+        if (err) throw err;
+        res.json(result);
+      });
+});
+
+// GET a record by costcenter (ascending)
+recordRoutes.route("/record/costcenter/:costcenter").get(function (req, res) {
+  let db_connect = dbo.getDb();
+  let myquery = { costCenter: req.params.costCenter };
+  db_connect
+      .collection("employees")
+      .findOne(myquery, function (err, result) {
+        if (err) throw err;
+        res.json(result);
+      });
+});
+
 // Create a new record.
 // recordRoutes.route("/record/add").post(function (req, response) {
 //   let db_connect = dbo.getDb();
